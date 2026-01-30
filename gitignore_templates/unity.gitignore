@@ -1,0 +1,7 @@
+# Template : Unity
+Library/
+Temp/
+Obj/
+Build/
+Logs/
+UserSettings/

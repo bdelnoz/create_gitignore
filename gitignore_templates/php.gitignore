@@ -1,0 +1,7 @@
+# Template : PHP
+/vendor/
+composer.lock
+.env
+/node_modules/
+.phpunit.result.cache
+.idea/

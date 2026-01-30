@@ -1,0 +1,7 @@
+# Template : Swift
+build/
+DerivedData/
+Pods/
+Carthage/Build/
+.build/
+.swiftpm/

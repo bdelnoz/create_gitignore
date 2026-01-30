@@ -1,0 +1,5 @@
+# Template : Terraform
+.terraform/
+*.tfstate*
+*.tfvars
+.terraform.lock.hcl

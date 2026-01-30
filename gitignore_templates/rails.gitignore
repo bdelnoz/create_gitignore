@@ -1,0 +1,6 @@
+# Template : Rails
+/vendor/bundle
+/log/*
+/tmp/*
+/storage/*
+.env

@@ -1,0 +1,11 @@
+# Template : Go
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+go.work
+bin/
+pkg/

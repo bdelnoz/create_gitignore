@@ -1,0 +1,4 @@
+# Template : JetBrains
+.idea/
+*.iml
+cmake-build-*/

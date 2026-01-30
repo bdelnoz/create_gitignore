@@ -1,0 +1,7 @@
+# Template : .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.pdb

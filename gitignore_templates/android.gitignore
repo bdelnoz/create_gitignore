@@ -1,0 +1,8 @@
+# Template : Android
+.gradle/
+build/
+.idea/
+*.iml
+*.apk
+*.aab
+local.properties

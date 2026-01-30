@@ -1,0 +1,16 @@
+# Template : C++
+*.d
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.exe
+*.out
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+.vs/
+*.sln.docstates

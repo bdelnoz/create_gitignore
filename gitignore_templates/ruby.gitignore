@@ -1,0 +1,10 @@
+# Template : Ruby
+*.gem
+*.rbc
+.bundle/
+vendor/bundle
+coverage/
+tmp/
+log/*
+.env
+.byebug_history
