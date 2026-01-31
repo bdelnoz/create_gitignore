@@ -8,6 +8,7 @@ output/
 infos/
 result/
 results/
+old/
 *.log
 *.zip
 *.tar.gz
