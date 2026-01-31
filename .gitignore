@@ -13,3 +13,18 @@ old/
 *.zip
 *.tar.gz
 *.rar
+
+# Section added automatically by create_gitignore.sh
+/logs
+
+# Section added automatically by create_gitignore.sh
+/outputs
+
+# Section added automatically by create_gitignore.sh
+/results
+
+# Section added automatically by create_gitignore.sh
+/resume
+
+# Section added automatically by create_gitignore.sh
+/backup

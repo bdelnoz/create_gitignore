@@ -43,6 +43,7 @@ LOG_DIR="${SCRIPT_DIR}/logs"
 LOG_FILE="${LOG_DIR}/log.${SCRIPT_NAME}.${SCRIPT_VERSION}.log"
 RESULTS_DIR="${SCRIPT_DIR}/results"
 TEMPLATES_DIR="${SCRIPT_DIR}/gitignore_templates"
+BACKUP_DIR="${SCRIPT_DIR}/backup"
 
 # Documentation files
 README_FILE="${SCRIPT_DIR}/README.${SCRIPT_NAME}.md"
@@ -87,19 +88,17 @@ track_action() {
 # FUNCTION: ensure_directories
 # Description: Ensure all required directories exist
 ################################################################################
-ensure_directories() {
-    # Create logs directory if not exists
-    if [ ! -d "$LOG_DIR" ]; then
-        mkdir -p "$LOG_DIR"
-        track_action "Created logs directory: $LOG_DIR"
-    fi
 
-    # Create results directory if not exists
-    if [ ! -d "$RESULTS_DIR" ]; then
-        mkdir -p "$RESULTS_DIR"
-        track_action "Created results directory: $RESULTS_DIR"
-    fi
+ensure_directories() {
+    for dir in "$LOG_DIR" "$RESULTS_DIR" "$BACKUP_DIR"; do
+        if [ ! -d "$dir" ]; then
+            mkdir -p "$dir"
+            track_action "Created directory: $dir"
+        fi
+    done
 }
+
+
 
 ################################################################################
 # FUNCTION: manage_script_gitignore
@@ -108,7 +107,7 @@ ensure_directories() {
 ################################################################################
 manage_script_gitignore() {
     local gitignore_path="${SCRIPT_DIR}/.gitignore"
-    local entries_to_add=("/logs" "/outputs" "/results" "/resume")
+    local entries_to_add=("/logs" "/outputs" "/results" "/resume" "/backup")
     local added_count=0
     local already_present=0
 
@@ -998,8 +997,18 @@ create_gitignore() {
             read -p "Action: [a]ppend or [r]eplace? (a/r): " choice
             case "$choice" in
                 r|R)
-                    local backup="${gitignore_path}.backup.$(date +%Y%m%d_%H%M%S)"
-                    mv "$gitignore_path" "$backup"
+            local backup_file="${BACKUP_DIR}/.gitignore.backup.$(date +%Y%m%d_%H%M%S)"
+
+            if [ "$DRY_RUN" = false ]; then
+                mv "$gitignore_path" "$backup_file"
+                log "✓ Backup created: $backup_file"
+                track_action "Backup stored in $backup_file"
+            else
+                log "[DRY-RUN] Would move $gitignore_path to $backup_file"
+                fi
+
+
+
                     log "✓ Backup created: $backup"
                     track_action "Created backup: $backup"
                     track_action "Replaced .gitignore with template '$template'"
