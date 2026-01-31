@@ -16,6 +16,7 @@ output/
 infos/
 result/
 results/
+backup/
 *.log
 *.zip
 *.tar.gz
