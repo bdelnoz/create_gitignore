@@ -3,9 +3,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LOG_DIR="${SCRIPT_DIR}/logs"
 LOG_FILE="${LOG_DIR}/log.${SCRIPT_NAME}.${SCRIPT_VERSION}.log"
 RESULTS_DIR="${SCRIPT_DIR}/results"
-TEMPLATES_DIR="${SCRIPT_DIR"
-cd $TEMPLATES_DIR
-
+TEMPLATES_DIR="${SCRIPT_DIR}"
+# cd $TEMPLATES_DIR
 cat > shell.gitignore <<'EOF'
 # Template : shell
 # Description : shell scriting compatihle with v110 and minimum
@@ -22,6 +21,7 @@ results/
 *.tar.gz
 *.rar
 EOF
+
 cat > java.gitignore <<'EOF'
 # Template : Java
 # Description : Java compiled files, build tools (Maven, Gradle)
@@ -66,7 +66,6 @@ bin/
 .vscode/
 .DS_Store
 EOF
-
 
 cat > cpp.gitignore <<'EOF'
 # Template : C++
